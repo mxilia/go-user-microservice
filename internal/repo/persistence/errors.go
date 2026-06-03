@@ -9,7 +9,7 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func translateRedisError(err error) error {
+func translatePostgresError(err error) error {
 	if err == nil {
 		return nil
 	}
@@ -36,7 +36,7 @@ func translateRedisError(err error) error {
 	return err
 }
 
-func translatePostgresError(err error) error {
+func translateRedisError(err error) error {
 	if err == nil {
 		return nil
 	}
