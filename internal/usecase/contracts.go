@@ -19,7 +19,7 @@ type (
 	}
 
 	SessionUseCase interface {
-		CreateSession(ctx context.Context) (*entities.Session, error)
+		CreateSession(ctx context.Context, session *entities.Session) (*entities.Session, error)
 		FindSessionByID(ctx context.Context, id uuid.UUID) (*entities.Session, error)
 		RevokeSession(ctx context.Context, email string) error
 		DeleteSession(ctx context.Context, id uuid.UUID) error
