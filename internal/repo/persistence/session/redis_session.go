@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/google/uuid"
-	"github.com/mxilia/go-user-microservice.git/internal/entities"
+	"github.com/mxilia/go-user-microservice.git/internal/entity"
 	"github.com/mxilia/go-user-microservice.git/internal/repo"
 	"github.com/mxilia/go-user-microservice.git/pkg/redisclient"
 )
@@ -19,11 +19,11 @@ func NewRedisSessionRepository(redis *redisclient.Client) repo.SessionRepository
 	}
 }
 
-func (r *RedisSessionRepository) SaveSession(ctx context.Context, session *entities.Session) (*entities.Session, error) {
+func (r *RedisSessionRepository) SaveSession(ctx context.Context, session *entity.Session) (*entity.Session, error) {
 	panic("unimplemented")
 }
 
-func (r *RedisSessionRepository) FindSessionByID(ctx context.Context, id uuid.UUID) (*entities.Session, error) {
+func (r *RedisSessionRepository) FindSessionByID(ctx context.Context, id uuid.UUID) (*entity.Session, error) {
 	panic("unimplemented")
 }
 

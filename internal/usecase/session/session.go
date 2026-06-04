@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/google/uuid"
-	"github.com/mxilia/go-user-microservice.git/internal/entities"
+	"github.com/mxilia/go-user-microservice.git/internal/entity"
 	"github.com/mxilia/go-user-microservice.git/internal/repo"
 	"github.com/mxilia/go-user-microservice.git/internal/usecase"
 	appError "github.com/mxilia/go-user-microservice.git/pkg/apperror"
@@ -20,14 +20,14 @@ func NewSessionService(sessionRepo repo.SessionRepository) usecase.SessionUseCas
 	}
 }
 
-func (s *SessionService) CreateSession(ctx context.Context, session *entities.Session) (*entities.Session, error) {
+func (s *SessionService) CreateSession(ctx context.Context, session *entity.Session) (*entity.Session, error) {
 	if session == nil {
 		return nil, appError.ErrInvalidInput
 	}
 	return s.sessionRepo.SaveSession(ctx, session)
 }
 
-func (s *SessionService) FindSessionByID(ctx context.Context, id uuid.UUID) (*entities.Session, error) {
+func (s *SessionService) FindSessionByID(ctx context.Context, id uuid.UUID) (*entity.Session, error) {
 	if id == uuid.Nil {
 		return nil, appError.ErrInvalidInput
 	}
