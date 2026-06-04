@@ -9,7 +9,7 @@ func (c *Client) Get(ctx context.Context, key string) (string, error) {
 	return c.rdb.Get(ctx, key).Result()
 }
 
-func (c *Client) Set(ctx context.Context, key, value string, ttl time.Duration) error {
+func (c *Client) Set(ctx context.Context, key string, value any, ttl time.Duration) error {
 	return c.rdb.Set(ctx, key, value, ttl).Err()
 }
 
